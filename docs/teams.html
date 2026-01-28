@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiniLearn para equipos</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20250308" />
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Inicio MiniLearn">
+        <img class="logo-icon" src="assets/favicon.png" alt="" width="32" height="32" loading="eager" />
+        <span class="logo-text">MiniLearn</span>
+      </a>
+      <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <a class="nav-link" href="index.html" data-i18n="teams_back">Volver</a>
+        <div class="lang-toggle" role="group" aria-label="Idioma" data-i18n-aria="lang_label">
+          <button type="button" class="lang-btn" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="teams-hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="pill" data-i18n="teams_pill">MiniLearn para equipos</span>
+          <h1 id="teams-hero-title" class="hero-title" data-i18n="teams_title">
+            Convierte documentación interna en capacitación continua.
+          </h1>
+          <p class="hero-subtitle" data-i18n="teams_subtitle">
+            MiniLearn transforma procesos, playbooks y conocimiento interno en rutas guiadas,
+            evaluaciones y progreso medible para cada equipo, sin construir cursos desde cero.
+          </p>
+          <div class="hero-ctas">
+            <a href="mailto:hi@minilearn.cl?subject=MiniLearn%20para%20equipos" class="btn btn-primary btn-large" data-i18n="teams_cta_primary">Habla con nosotros</a>
+            <a href="#teams-form" class="btn btn-ghost btn-large" data-i18n="teams_cta_secondary">Solicitar demo</a>
+          </div>
+          <div class="hero-badges">
+            <span data-i18n="teams_badge1">Onboarding más rápido</span>
+            <span data-i18n="teams_badge2">Capacitación continua</span>
+            <span data-i18n="teams_badge3">Progreso medible</span>
+          </div>
+          <p class="usecase-label" data-i18n="teams_usecases_title">Casos típicos</p>
+          <ul class="comparison-list">
+            <li data-i18n="teams_usecase1">Onboarding de nuevos ingresos en días, no semanas.</li>
+            <li data-i18n="teams_usecase2">Playbooks de ventas y soporte con práctica guiada.</li>
+            <li data-i18n="teams_usecase3">Procesos críticos y cumplimiento con evidencia de avance.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:32px;border-radius:24px">
+          <h2 class="section-title" style="margin-top:0" data-i18n="teams_form_title">Agenda una llamada</h2>
+          <p class="section-subtitle" style="margin-bottom:18px" data-i18n="teams_form_subtitle">
+            Cuéntanos sobre tu equipo y te mostramos una ruta de ejemplo personalizada.
+          </p>
+          <form id="teams-form" class="waitlist-form" action="mailto:hi@minilearn.cl?subject=MiniLearn%20para%20equipos" method="post" enctype="text/plain">
+            <div class="waitlist-row">
+              <label class="sr-only" for="team-name" data-i18n="teams_form_name">Nombre</label>
+              <input id="team-name" name="name" type="text" placeholder="Tu nombre" required data-i18n-placeholder="teams_form_name_placeholder" />
+              <label class="sr-only" for="team-company" data-i18n="teams_form_company">Empresa</label>
+              <input id="team-company" name="company" type="text" placeholder="Empresa" required data-i18n-placeholder="teams_form_company_placeholder" />
+            </div>
+            <div class="waitlist-row">
+              <label class="sr-only" for="team-email" data-i18n="teams_form_email">Email</label>
+              <input id="team-email" name="email" type="email" placeholder="tu@email.com" required data-i18n-placeholder="teams_form_email_placeholder" />
+              <button type="submit" class="btn btn-primary btn-large" data-i18n="teams_form_cta">Contactar</button>
+            </div>
+            <p class="waitlist-note" data-i18n="teams_form_note">Responderemos con un ejemplo y los próximos pasos.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js?v=20250308" defer></script>
+</body>
+</html>

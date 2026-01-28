@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiniLearn – AI-generated personalized learncodeing systems</title>
+  <meta name="description" content="The simplest way to learn anything you want" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="MiniLearn – AI-generated personalized learning systems" />
+  <meta property="og:description" content="The simplest way to learn anything you want" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://robertomontegu.github.io/minilearn-web/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MiniLearn – AI-generated personalized learning systems" />
+  <meta name="twitter:description" content="The simplest way to learn anything you want" />
+
+  <link rel="canonical" href="https://robertomontegu.github.io/minilearn-web/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20250308" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Inicio MiniLearn">
+        <img class="logo-icon" src="assets/favicon.png" alt="" width="32" height="32" loading="eager" />
+        <span class="logo-text">MiniLearn</span>
+      </a>
+      <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <a class="nav-link" href="#producto" data-i18n="nav_product">Problema</a>
+        <a class="nav-link" href="#como-funciona" data-i18n="nav_how">Cómo funciona</a>
+        <a class="nav-link" href="#audiencia" data-i18n="nav_who">Para quién</a>
+        <div class="lang-toggle" role="group" aria-label="Idioma" data-i18n-aria="lang_label">
+          <button type="button" class="lang-btn" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="pill" data-i18n="hero_pill">Infraestructura de aprendizaje con IA</span>
+          <h1 id="hero-title" class="hero-title" data-i18n="hero_title">
+            Convierte cualquier tema en un sistema de aprendizaje personalizado.
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">
+            MiniLearn usa IA para generar rutas de aprendizaje estructuradas — lecciones, evaluaciones y progresión —
+            adaptadas a tu nivel, ritmo y objetivos, en minutos.
+          </p>
+          <div class="hero-ctas">
+            <a href="#registro" class="btn btn-primary btn-large" data-i18n="cta_start">Genera tu curso personalizado</a>
+            <a href="mailto:hi@minilearn.cl?subject=Team%20onboarding" class="btn btn-secondary btn-large" data-i18n="cta_team">Habla con nosotros para onboarding de equipos</a>
+          </div>
+          <div class="hero-badges">
+            <span data-i18n="badge_card">Minutos, no horas</span>
+            <span data-i18n="badge_freemium">Estructura primero</span>
+            <span data-i18n="badge_weekly">Personalizado por IA</span>
+          </div>
+        </div>
+        <div class="hero-mascot" aria-hidden="true">
+          <div class="mascot-card">
+            <div class="mascot-glow"></div>
+            <img class="mascot-image" src="assets/minilou leyendo.png" alt="Minilou leyendo" />
+            <div class="mascot-stats">
+              <div>
+                <span class="stat-number">12</span>
+                <span class="stat-label" data-i18n="mascot_streak">minutos por sesión</span>
+              </div>
+              <div>
+                <span class="stat-number">+1</span>
+                <span class="stat-label" data-i18n="mascot_daily">objetivo diario</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="producto" class="section problem-section" aria-labelledby="producto-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="producto-title" class="section-title" data-i18n="product_title">Aprender hoy es un caos.</h2>
+          <p class="section-subtitle" data-i18n="product_subtitle">Saltas entre videos, PDFs y posts sin una ruta clara. Consumes contenido, pero no sabes qué practicar, si estás mejorando ni cuándo avanzar.</p>
+        </div>
+        <div class="grid value-grid">
+          <article class="card value-card reveal">
+            <img class="value-card-media" src="assets/confused.png" alt="Demasiadas fuentes" loading="lazy" />
+            <h3 data-i18n="product_card1_title">Demasiadas fuentes</h3>
+            <p data-i18n="product_card1_body">Videos, documentos, hilos y cursos viven separados. Nada está conectado.</p>
+          </article>
+          <article class="card value-card reveal">
+            <img class="value-card-media" src="assets/dizzy.png" alt="No sabes qué sigue" loading="lazy" />
+            <h3 data-i18n="product_card2_title">No sabes qué sigue</h3>
+            <p data-i18n="product_card2_body">Aprendes cosas sueltas, pero no construyes dominio real.</p>
+          </article>
+          <article class="card value-card reveal">
+            <img class="value-card-media" src="assets/blind.png" alt="Practicas a ciegas" loading="lazy" />
+            <h3 data-i18n="product_card3_title">Practicas a ciegas</h3>
+            <p data-i18n="product_card3_body">No sabes qué reforzar ni si tu esfuerzo está dando resultados.</p>
+          </article>
+          <article class="card value-card reveal">
+            <img class="value-card-media" src="assets/defeated.png" alt="Pierdes impulso" loading="lazy" />
+            <h3 data-i18n="product_card4_title">Pierdes impulso</h3>
+            <p data-i18n="product_card4_body">Sin progreso visible, la mayoría abandona.</p>
+          </article>
+        </div>
+        <p class="problem-closing" data-i18n="product_closing">MiniLearn transforma este caos en un camino claro de aprendizaje.</p>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section section-soft" aria-labelledby="como-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="como-title" class="section-title" data-i18n="how_title">Cómo funciona en 3 pasos</h2>
+          <p class="section-subtitle" data-i18n="how_subtitle">Del tema a un sistema de aprendizaje, en minutos.</p>
+        </div>
+        <div class="grid steps">
+          <article class="card step-card reveal">
+            <h3 data-i18n="how_step1_title">Elige qué quieres aprender</h3>
+            <div class="step-body">
+              <div class="step-text">
+                <p data-i18n="how_step1_body">Define el tema, tu objetivo y el nivel deseado.</p>
+              </div>
+              <img class="step-media" src="assets/IMG_0445.PNG" alt="Selector de tema en MiniLearn" loading="lazy" />
+            </div>
+          </article>
+          <article class="card step-card reveal">
+            <h3 data-i18n="how_step2_title">La IA genera tu sistema</h3>
+            <div class="step-body">
+              <div class="step-text">
+                <p data-i18n="how_step2_body">Crea una ruta estructurada, con progreso y evaluaciones.</p>
+              </div>
+              <img class="step-media" src="assets/IMG_0449.PNG" alt="Ruta generada por MiniLearn" loading="lazy" />
+            </div>
+          </article>
+          <article class="card step-card reveal">
+            <h3 data-i18n="how_step3_title">Aprende y ajusta en tiempo real</h3>
+            <div class="step-body">
+              <div class="step-text">
+                <p data-i18n="how_step3_body">Lecciones cortas y evaluaciones que se adaptan con el tiempo.</p>
+              </div>
+              <img class="step-media" src="assets/IMG_0463.PNG" alt="Validacion de progreso en MiniLearn" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="audiencia" class="section audience-section" aria-labelledby="audiencia-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="audiencia-title" class="section-title" data-i18n="who_title">¿Es MiniLearn para ti?</h2>
+          <p class="section-subtitle" data-i18n="who_subtitle">Si alguna vez quisiste aprender algo y no supiste por dónde empezar, sí.</p>
+        </div>
+        <div class="grid audience-grid">
+          <article class="card audience-card audience-card-primary reveal">
+            <h3 data-i18n="who_b2c_heading">Aprender algo nuevo, sin perder tiempo ni foco</h3>
+            <p class="audience-body" data-i18n="who_b2c_body">Quieres aprender un tema especifico, pero no quieres pasar horas buscando cursos, videos o PDFs. MiniLearn crea una ruta clara para que avances con poco tiempo al dia.</p>
+            <ul class="audience-list">
+              <li data-i18n="who_b2c_case1">Quiero aprender X, pero no se por donde empezar</li>
+              <li data-i18n="who_b2c_case2">Tengo poco tiempo y necesito estructura</li>
+              <li data-i18n="who_b2c_case3">Quiero avanzar de verdad, no solo consumir contenido</li>
+              <li data-i18n="who_b2c_case4">Quiero saber si estoy mejorando</li>
+            </ul>
+            <a href="#registro" class="btn btn-primary btn-large audience-cta-primary" data-i18n="who_b2c_cta">Empieza a aprender</a>
+          </article>
+          <article class="card audience-card audience-card-secondary reveal">
+            <h3 class="audience-kicker" data-i18n="who_b2b_heading">Tambien para equipos</h3>
+            <p class="audience-lead" data-i18n="who_b2b_lead">Cuando el conocimiento interno no puede quedar en documentos olvidados.</p>
+            <p class="audience-body" data-i18n="who_b2b_body">MiniLearn convierte documentacion y procesos internos en capacitacion continua y medible para equipos.</p>
+            <ul class="audience-list audience-list-secondary">
+              <li data-i18n="who_b2b_case1">Onboarding mas rapido</li>
+              <li data-i18n="who_b2b_case2">Capacitacion continua en procesos</li>
+              <li data-i18n="who_b2b_case3">Playbooks de ventas o soporte</li>
+              <li data-i18n="who_b2b_case4">Cumplimiento y politicas internas</li>
+            </ul>
+            <a href="teams.html" class="btn btn-ghost btn-large audience-cta-secondary" data-i18n="who_b2b_cta">Usar MiniLearn en mi equipo</a>
+          </article>
+        </div>
+        <p class="audience-closing" data-i18n="who_closing">MiniLearn empieza contigo. Luego escala a equipos.</p>
+      </div>
+    </section>
+
+
+    <section id="registro" class="section" aria-labelledby="registro-title">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-info">
+            <span class="pill pill-alt" data-i18n="cta_pill">Empieza ahora</span>
+            <h2 id="registro-title" class="section-title" data-i18n="cta_title">Estamos en Beta cerrada. ¡Inscríbete!</h2>
+            <p class="section-subtitle" data-i18n="cta_subtitle">Genera tu curso personalizado y ajusta el ritmo según tu objetivo.</p>
+            <div class="cta-points">
+              <div>
+                <span class="stat-number">3–5</span>
+                <span class="stat-label" data-i18n="cta_stat1">minutos por sesión</span>
+              </div>
+              <div>
+                <span class="stat-number" data-i18n="cta_stat2_title">Sin tarjeta</span>
+                <span class="stat-label" data-i18n="cta_stat2">requerida</span>
+              </div>
+            </div>
+          </div>
+          <div class="cta-form">
+            <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/mnjjdrvy" method="POST" novalidate>
+              <label for="email" data-i18n="form_label">Tu email</label>
+              <div class="waitlist-row">
+                <input id="email" name="email" type="email" placeholder="tu@email.com" aria-invalid="false" required data-i18n-placeholder="form_placeholder" />
+                <button type="submit" class="btn btn-primary btn-large" data-i18n="form_cta">Inscríbete</button>
+              </div>
+              <p id="email-error" class="error-text" aria-live="polite"></p>
+            </form>
+            <div class="cta-secondary">
+              <p class="cta-secondary-text" data-i18n="cta_team_note">¿Tienes equipo? Podemos ayudar con onboarding.</p>
+              <a href="teams.html" class="btn btn-secondary btn-large" data-i18n="cta_team">Habla con nosotros para onboarding de equipos</a>
+            </div>
+            <div id="success-message" class="success-message" role="alert" style="display:none">
+              <div class="success-icon">✓</div>
+              <span data-i18n="form_success">Tu ruta está en marcha. Te avisaremos con tu acceso.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <nav class="footer-nav" aria-label="Links">
+        <a href="terminos.html" data-i18n="footer_terms">Términos</a>
+        <a href="privacidad.html" data-i18n="footer_privacy">Privacidad</a>
+        <a href="mailto:hi@minilearn.cl" data-i18n="footer_contact">Contacto</a>
+      </nav>
+      <p class="footer-copy" data-i18n="footer_copy">MiniLearn · Infraestructura para aprender.</p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=20250308"></script>
+</body>
+</html>
