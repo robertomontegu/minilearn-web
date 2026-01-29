@@ -61,7 +61,7 @@
           <p class="section-subtitle" style="margin-bottom:18px" data-i18n="teams_form_subtitle">
             Cuéntanos sobre tu equipo y te mostramos una ruta de ejemplo personalizada.
           </p>
-          <form id="teams-form" class="waitlist-form" action="mailto:hi@minilearn.cl?subject=MiniLearn%20para%20equipos" method="post" enctype="text/plain">
+          <form id="teams-form" class="waitlist-form" action="https://formspree.io/f/xgoyenye" method="POST" novalidate>
             <div class="waitlist-row">
               <label class="sr-only" for="team-name" data-i18n="teams_form_name">Nombre</label>
               <input id="team-name" name="name" type="text" placeholder="Tu nombre" required data-i18n-placeholder="teams_form_name_placeholder" />
@@ -73,8 +73,13 @@
               <input id="team-email" name="email" type="email" placeholder="tu@email.com" required data-i18n-placeholder="teams_form_email_placeholder" />
               <button type="submit" class="btn btn-primary btn-large" data-i18n="teams_form_cta">Contactar</button>
             </div>
+            <p id="teams-email-error" class="error-text" aria-live="polite"></p>
             <p class="waitlist-note" data-i18n="teams_form_note">Responderemos con un ejemplo y los próximos pasos.</p>
           </form>
+          <div id="teams-success-message" class="success-message" role="alert" style="display:none">
+            <div class="success-icon">✓</div>
+            <span data-i18n="teams_form_success">Gracias. Te contactaremos con un ejemplo y los siguientes pasos.</span>
+          </div>
         </div>
       </div>
     </section>
