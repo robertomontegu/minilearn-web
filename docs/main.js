@@ -91,6 +91,7 @@ const translations = {
     teams_form_email_placeholder: 'tu@email.com',
     teams_form_cta: 'Contactar',
     teams_form_note: 'Responderemos con un ejemplo y los próximos pasos.',
+    teams_form_success: 'Gracias. Te contactaremos con un ejemplo y los siguientes pasos.',
     terms_title: 'Terminos de uso',
     terms_subtitle: 'MiniLearn es una app de aprendizaje con IA. Al usarla, aceptas los siguientes terminos.',
     terms_card1_title: 'Cuenta y acceso',
@@ -112,6 +113,7 @@ const translations = {
     privacy_card4_title: 'Tus derechos',
     privacy_card4_body: 'Puedes solicitar acceso, correccion o eliminacion de tus datos escribiendo a hi@minilearn.cl.',
     error_empty: 'Por favor, introduce tu email',
+    error_required: 'Por favor, completa todos los campos',
     error_invalid: 'Por favor, introduce un email válido',
     error_exists: 'Tu email ya está registrado',
     error_submit: 'No pudimos enviar tu email. Intenta de nuevo en unos segundos.',
@@ -210,6 +212,7 @@ const translations = {
     teams_form_email_placeholder: 'you@email.com',
     teams_form_cta: 'Contact',
     teams_form_note: 'We will reply with an example and next steps.',
+    teams_form_success: 'Thanks. We will contact you with an example and next steps.',
     terms_title: 'Terms of use',
     terms_subtitle: 'MiniLearn is an AI learning app. By using it, you agree to the following terms.',
     terms_card1_title: 'Account and access',
@@ -231,6 +234,7 @@ const translations = {
     privacy_card4_title: 'Your rights',
     privacy_card4_body: 'You can request access, correction, or deletion of your data by contacting hi@minilearn.cl.',
     error_empty: 'Please enter your email',
+    error_required: 'Please complete all fields',
     error_invalid: 'Please enter a valid email',
     error_exists: 'Your email is already registered',
     error_submit: 'We could not send your email. Please try again in a moment.',
@@ -244,6 +248,13 @@ const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const successMessage = document.getElementById('success-message');
 const submitButton = waitlistForm?.querySelector('button[type="submit"]');
+const teamsForm = document.getElementById('teams-form');
+const teamsNameInput = document.getElementById('team-name');
+const teamsCompanyInput = document.getElementById('team-company');
+const teamsEmailInput = document.getElementById('team-email');
+const teamsEmailError = document.getElementById('teams-email-error');
+const teamsSuccessMessage = document.getElementById('teams-success-message');
+const teamsSubmitButton = teamsForm?.querySelector('button[type="submit"]');
 const langButtons = document.querySelectorAll('.lang-btn');
 
 let emails = JSON.parse(localStorage.getItem('minilearn-waitlist')) || [];
@@ -255,6 +266,7 @@ const normalizedQueryLang = queryLang ? queryLang.toLowerCase() : '';
 const preferredQueryLang = translations[normalizedQueryLang] ? normalizedQueryLang : '';
 let currentLang = preferredQueryLang || storedLang || document.documentElement.lang || browserLang || 'es';
 let submitButtonText = '';
+let teamsSubmitButtonText = '';
 
 if(!translations[currentLang]){
   currentLang = 'es';
@@ -264,9 +276,9 @@ function t(key){
   return translations[currentLang][key] || key;
 }
 
-function getSubmitButtonText(){
-  if(!submitButton) return t('cta_start');
-  const key = submitButton.dataset.i18n;
+function getSubmitButtonText(button){
+  if(!button) return t('cta_start');
+  const key = button.dataset.i18n;
   return key ? t(key) : t('cta_start');
 }
 
@@ -308,9 +320,13 @@ function setLanguage(lang, options = {}){
     btn.classList.toggle('active', btn.dataset.lang === currentLang);
   });
 
-  submitButtonText = getSubmitButtonText();
+  submitButtonText = getSubmitButtonText(submitButton);
   if(submitButton && !submitButton.disabled){
     submitButton.textContent = submitButtonText;
+  }
+  teamsSubmitButtonText = getSubmitButtonText(teamsSubmitButton);
+  if(teamsSubmitButton && !teamsSubmitButton.disabled){
+    teamsSubmitButton.textContent = teamsSubmitButtonText;
   }
 
   if(options.updateUrl){
@@ -327,15 +343,17 @@ function validateEmail(email){
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
-function showError(message){
-  emailError.textContent = message;
-  emailInput.classList.add('error');
-  emailInput.setAttribute('aria-invalid','true');
+function showError(message, input = emailInput, errorEl = emailError){
+  if(!input || !errorEl) return;
+  errorEl.textContent = message;
+  input.classList.add('error');
+  input.setAttribute('aria-invalid','true');
 }
-function clearError(){
-  emailError.textContent = '';
-  emailInput.classList.remove('error');
-  emailInput.setAttribute('aria-invalid','false');
+function clearError(input = emailInput, errorEl = emailError){
+  if(!input || !errorEl) return;
+  errorEl.textContent = '';
+  input.classList.remove('error');
+  input.setAttribute('aria-invalid','false');
 }
 
 waitlistForm?.addEventListener('submit', async (e)=>{
@@ -389,7 +407,81 @@ waitlistForm?.addEventListener('submit', async (e)=>{
   }
 });
 
-emailInput?.addEventListener('input', clearError);
+emailInput?.addEventListener('input', ()=> clearError());
+
+teamsForm?.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  clearError(teamsEmailInput, teamsEmailError);
+
+  const name = teamsNameInput?.value.trim();
+  const company = teamsCompanyInput?.value.trim();
+  const email = teamsEmailInput?.value.trim();
+
+  if(!name){
+    showError(t('error_required'), teamsNameInput, teamsEmailError);
+    teamsNameInput?.focus();
+    return;
+  }
+  if(!company){
+    showError(t('error_required'), teamsCompanyInput, teamsEmailError);
+    teamsCompanyInput?.focus();
+    return;
+  }
+  if(!email){
+    showError(t('error_empty'), teamsEmailInput, teamsEmailError);
+    teamsEmailInput?.focus();
+    return;
+  }
+  if(!validateEmail(email)){
+    showError(t('error_invalid'), teamsEmailInput, teamsEmailError);
+    teamsEmailInput?.focus();
+    return;
+  }
+
+  if(teamsSubmitButton){
+    teamsSubmitButton.disabled = true;
+    teamsSubmitButton.textContent = t('button_sending');
+  }
+
+  try{
+    const response = await fetch(teamsForm.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(teamsForm),
+    });
+
+    if(!response.ok){
+      throw new Error('Formspree error');
+    }
+
+    teamsForm.style.display = 'none';
+    teamsSuccessMessage.style.display = 'flex';
+    if(teamsEmailInput){
+      teamsEmailInput.value = '';
+    }
+
+    const announcement = document.createElement('div');
+    announcement.setAttribute('role','status');
+    announcement.setAttribute('aria-live','polite');
+    announcement.textContent = t('teams_form_success');
+    announcement.style.position = 'absolute';
+    announcement.style.left = '-10000px';
+    document.body.appendChild(announcement);
+
+    teamsSuccessMessage.scrollIntoView({behavior:'smooth', block:'center'});
+  }catch(error){
+    showError(t('error_submit'), teamsEmailInput, teamsEmailError);
+  }finally{
+    if(teamsSubmitButton){
+      teamsSubmitButton.disabled = false;
+      teamsSubmitButton.textContent = teamsSubmitButtonText;
+    }
+  }
+});
+
+teamsEmailInput?.addEventListener('input', ()=> clearError(teamsEmailInput, teamsEmailError));
+teamsNameInput?.addEventListener('input', ()=> clearError(teamsNameInput, teamsEmailError));
+teamsCompanyInput?.addEventListener('input', ()=> clearError(teamsCompanyInput, teamsEmailError));
 
 // Smooth scroll con enfoque accesible
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
