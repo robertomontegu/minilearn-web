@@ -361,6 +361,65 @@ h1, h2, h3, .logo-text{
 .comparison-list{margin:0;padding-left:18px;color:var(--muted)}
 .comparison-card h3{margin-top:0}
 
+.blog-hero .hero-grid{
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+}
+.blog-featured{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.blog-section .section-subtitle{color:var(--muted)}
+.blog-grid{grid-template-columns:repeat(3, minmax(220px, 1fr))}
+.post-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.post-tag{
+  display:inline-flex;
+  align-self:flex-start;
+  padding:4px 10px;
+  border-radius:var(--radius-pill);
+  background:rgba(244,183,77,.25);
+  font-size:12px;
+  font-weight:600;
+  color:var(--ink);
+}
+.post-title{margin:0}
+.post-excerpt{margin:0;color:var(--muted)}
+.post-meta{
+  display:flex;
+  gap:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+.post-hero .hero-title{max-width:760px}
+.post-body{
+  max-width:780px;
+}
+.post-body p{color:var(--muted)}
+.post-body h2{
+  margin:26px 0 10px;
+  font-size:24px;
+  color:var(--ink);
+}
+.post-body img{
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  border:1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  margin:16px 0;
+  display:block;
+}
+.post-list{
+  margin:16px 0 20px;
+  padding-left:18px;
+  color:var(--muted);
+}
+
 
 
 .cta-card{
@@ -430,11 +489,13 @@ input[type="email"].error{border-color:#e35b4f}
 
 @media (max-width: 1024px){
   .hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .blog-hero .hero-grid{grid-template-columns:1fr}
   .hero-content{max-width:640px}
   .hero-ctas{justify-content:center}
   .hero-badges{justify-content:center}
   .value-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:repeat(2,1fr)}
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
   .audience-grid{grid-template-columns:1fr}
   .comparison-grid{grid-template-columns:1fr}
   .cta-card{grid-template-columns:1fr}
@@ -453,6 +514,7 @@ input[type="email"].error{border-color:#e35b4f}
   .section-title{font-size:28px}
   .hero-title{font-size:34px}
   .steps{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
   .cta-points{flex-direction:column}
   .waitlist-row{flex-direction:column}
 }
