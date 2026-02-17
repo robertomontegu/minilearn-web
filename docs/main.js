@@ -282,11 +282,20 @@ const langButtons = document.querySelectorAll('.lang-btn');
 let emails = JSON.parse(localStorage.getItem('minilearn-waitlist')) || [];
 const storedLang = localStorage.getItem('minilearn-lang');
 const browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
+const hostname = window.location.hostname.toLowerCase();
 const params = new URLSearchParams(window.location.search);
 const queryLang = params.get('lang');
 const normalizedQueryLang = queryLang ? queryLang.toLowerCase() : '';
 const preferredQueryLang = translations[normalizedQueryLang] ? normalizedQueryLang : '';
-let currentLang = preferredQueryLang || storedLang || document.documentElement.lang || browserLang || 'es';
+
+function getDomainLanguage(host){
+  if(host === 'minilearn.cl' || host.endsWith('.minilearn.cl')) return 'es';
+  if(host === 'minilearn.app' || host.endsWith('.minilearn.app')) return 'en';
+  return '';
+}
+
+const domainLang = getDomainLanguage(hostname);
+let currentLang = domainLang || preferredQueryLang || storedLang || document.documentElement.lang || browserLang || 'es';
 let submitButtonText = '';
 let teamsSubmitButtonText = '';
 
