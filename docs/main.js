@@ -301,7 +301,7 @@ function getDomainLanguage(host){
 }
 
 const domainLang = getDomainLanguage(hostname);
-let currentLang = domainLang || preferredQueryLang || storedLang || document.documentElement.lang || browserLang || 'es';
+let currentLang = preferredQueryLang || domainLang || storedLang || document.documentElement.lang || browserLang || 'es';
 let submitButtonText = '';
 let teamsSubmitButtonText = '';
 
@@ -338,6 +338,15 @@ function updateLangLinks(lang){
   });
 }
 
+function updateLanguageSections(lang){
+  const sections = document.querySelectorAll('[data-lang-section]');
+  sections.forEach(section=>{
+    const sectionLang = section.getAttribute('data-lang-section');
+    const shouldShow = sectionLang === lang;
+    section.hidden = !shouldShow;
+  });
+}
+
 function setLanguage(lang, options = {}){
   currentLang = translations[lang] ? lang : 'es';
   document.documentElement.lang = currentLang;
@@ -369,6 +378,7 @@ function setLanguage(lang, options = {}){
   if(options.updateUrl){
     updateUrlLang(currentLang);
   }
+  updateLanguageSections(currentLang);
   updateLangLinks(currentLang);
 }
 
